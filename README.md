@@ -2,3 +2,5 @@
 #grabcourse.py imports the canvas api then with local settings looks up nominated course and returns the full course name and term.
 
 #canvascourselistofusers.py imports the canvas api then with local settings looks up nominated course and returns paginated list of users.
+
+#grabuser.py imports the canvas api then with local settings looks up nominated user and confirms user name and sis_login_id. Then creates a paginated list of all courses for that user with course_id.

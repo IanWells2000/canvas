@@ -3,7 +3,6 @@
 # Import the Canvas class
 from canvasapi import Canvas
 
-
 # Canvas API URL
 API_URL = "https://canvas.instructure.com/"
 # Canvas API key
@@ -15,7 +14,6 @@ canvas = Canvas(API_URL, API_KEY)
 #grab user xxxxxx
 user = canvas.get_user(your user_id here)
 
-
 # access the user's name
 user.name
 
@@ -24,7 +22,6 @@ print(user)
 
 # list of courses the user is enrolled in
 courses = user.get_courses(enrollment_status='active')
-
 
 # print the list of courses this user is enrolled on
 for courses in courses:

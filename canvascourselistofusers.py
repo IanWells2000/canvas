@@ -1,5 +1,5 @@
-# Using Using the Canvas api to query canvas and locate courses in Canvas LMS
-# Before using the canvas api I need to instantiate a new canvas object
+# Using Using the Canvas api to query Canvas LMS and locate courses in Canvas
+# Before using the canvas api need to instantiate a new canvas object
 
 # Import the Canvas class
 from canvasapi import Canvas

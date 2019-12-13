@@ -1,0 +1,11 @@
+#snippett to be added to python script to calculate difference between two dates
+
+graded_days_from_submission  = 0
+
+if submission['submitted_at'] is not None:
+	sub_time = datetime.datetime.strptime(submission['submitted_at'],'%Y-%m-%dT%H:%M:%SZ')
+
+	if submission['graded_at'] is not None:
+		graded_time = datetime.datetime.strptime(submission['graded_at'],'%Y-%m-%dT%H:%M:%SZ')
+                difference = graded_time - sub_time
+                graded_days_from_submission = difference.days

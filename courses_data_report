@@ -1,0 +1,39 @@
+#Using the canvas api to query canvas to locate courses listed for an account in canvas
+
+#Import the Canvas class
+from canvasapi import Canvas
+
+#using this import method to collect canvas LMS instance URL and Authentication Token 
+from settings import API_URL, API_KEY
+
+import requests
+import json
+import csv
+import xlsxwriter
+
+# Initialize a new Canvas object
+canvas = Canvas(API_URL, API_KEY)
+
+#grab account XX - Chemistry
+account = canvas.get_account(XX)
+
+# prints name of course and course id to screen for checking purposes
+print("Account is ...",account)
+
+#list of courses in account number(XX)making certain they are published courses
+courses = account.get_courses(enrollment_term_id=110,published = "True")
+
+# prints confirmation of canvas courses in this account to screen for checking (Chemistry)
+for course in courses:
+    print("Courses listed for Chemistry are  ...",course)
+
+#Add full path of file to write to. Use 'w' to allow write action - variable is 'f' using csv writer here
+with open('ADD FULL PATH HERE TO CSV TO PRINT DATA TO ', 'w', newline = '')as f:
+    writer = csv.writer(f)
+            
+#print the list of assignments for a course using endpoints for this class
+    for course in courses:
+        writer.writerow([account,course, course.course_code, course.account_id,course.enrollment_term_id, course.sis_course_id, course.created_at_date.strftime("%d/%m/%Y")])
+
+#making sure to close the workbook and save         
+f.close()
